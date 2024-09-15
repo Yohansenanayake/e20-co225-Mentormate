@@ -13,12 +13,12 @@ import BioUnit4 from './pages/bioUnit4';
 import BioUnit5 from './pages/bioUnit5';
 import BioUnit6 from './pages/bioUnit6';
 import BioUnit7 from './pages/bioUnit7';
-import BioUnit8 from './pages/BioUnit8';
-import BioUnit9 from './pages/BioUnit9';
-import BioUnit10 from './pages/BioUnit10';
-import BioPaper2020 from './pages/BioPaper2020';
-import BioPaper2021 from './pages/BioPaper2021';
-import BioPaper2022 from './pages/BioPaper2022';
+import BioUnit8 from './pages/bioUnit8';
+import BioUnit9 from './pages/bioUnit9';
+import BioUnit10 from './pages/bioUnit10';
+import BioPaper2020 from './pages/bioPaper2020';
+import BioPaper2021 from './pages/bioPaper2021';
+import BioPaper2022 from './pages/bioPaper2022';
 
 
 
