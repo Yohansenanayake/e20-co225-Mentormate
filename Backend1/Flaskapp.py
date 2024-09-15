@@ -6,7 +6,9 @@ from services.db_services import get_user_threads, get_thread_messages
 
 app = Flask(__name__)
 CORS(app)
-
+@app.route('/')
+def index():
+    return 'Hello Flask'
 @app.route('/api/signup', methods=['POST'])
 def signup():
     data = request.json
@@ -110,4 +112,4 @@ def chat():
     return jsonify({'message': response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0' , port=5000)

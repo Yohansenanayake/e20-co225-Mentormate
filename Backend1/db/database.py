@@ -9,8 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from db.models import Base
 
 # Setup the MySQL connection
-engine = create_engine('mysql+pymysql://root:@localhost/mentormate')
-
+engine = create_engine('mysql+pymysql://admin:mentorMate-db-E20363@mentormate-db.chae22ayqwzv.ap-south-1.rds.amazonaws.com:3306/mentormate')
 # Create tables if they don't exist
 Base.metadata.create_all(engine)
 
