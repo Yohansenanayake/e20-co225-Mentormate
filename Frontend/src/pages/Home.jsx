@@ -44,7 +44,7 @@ export default function Home() {
             <Heading fontSize="5xl" mb="4">MentorMate</Heading>
             <Heading fontSize="4xl">Empower Your Learning with Expert Guidance</Heading>
             <Text fontSize="lg">Your Study Companion, Anytime, Anywhere.</Text>
-            <Button colorScheme="blue" size="lg" mt="4" onClick={() => navigate('/login')} >Get Started</Button>
+            <Button colorScheme="blue" size="lg" mt="4" onClick={() => navigate('/login')} >Get Started Now</Button>
           </VStack>
         </Box>
       </Box>
