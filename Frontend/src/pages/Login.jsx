@@ -38,7 +38,7 @@ const Login = () => {
         console.log('Login successful!');
 
         // Redirect to the chat page
-        navigate('/chat'); // Use navigate to redirect to the chat page
+        navigate('/explore'); // Use navigate to redirect to the home page
       })
       .catch(error => {
         // On error, display an error message
@@ -103,6 +103,9 @@ const Login = () => {
                 </Button>
               </Stack>
               <Box textAlign="center" mt={'3'}>Don't have an account? <a href="/signup" style={{color: 'blue'}}>Sign Up</a></Box>
+              <Box textAlign="center" mt={'3'}>
+                <a href="/forgotpassword" style={{color: 'blue'}}>Forgot your password?</a>
+              </Box>    
             </form>
           </Stack>
         </Box>
