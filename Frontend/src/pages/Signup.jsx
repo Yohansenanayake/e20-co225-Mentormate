@@ -39,13 +39,13 @@ const SignUp = () => {
 
   return (
   
-   <Box display='felx' alignContent='center' bg="blue.700" minH={'100vh'} py="20">
+   <Box display='felx' alignContent='center' bgGradient='linear(to-br, #189AB4 0%, #05445E 50%, #0D1626 100%)' minH={'100vh'} py="20">
       {error && (<Alert status="error" mb="4" textAlign='center'variant='top-accent'flexDirection='column'alignItems='center'justifyContent='center'>
                    <AlertIcon />
                     {error}
                 </Alert>)
       }
-      <Heading as="h1" size="xl" textAlign="center" mb="6" color="gray.300" fontWeight="bold" textShadow="4px 4px 10px rgba(0, 0, 0, 0.8)">
+      <Heading as="h1" size="xl" textAlign="center" mb="6" color="#D4F1F4" fontWeight="bold" textShadow="4px 4px 10px rgba(0, 0, 0, 0.8)">
         Sign Up | MentorMate
       </Heading>
     <Box w="90%" maxW='md' mx="auto"  p='8' bgColor="gray.200" borderRadius={20}>

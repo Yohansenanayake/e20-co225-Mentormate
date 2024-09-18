@@ -50,25 +50,25 @@ export default function Home() {
       </Box>
 
       {/* Key Features */}
-      <VStack as="section" p="8" spacing="8" align="center" bg="gray.50">
+      <VStack as="section" p="8" spacing="8" align="center" bg="#94AEC6">
         <Heading>Key Features</Heading>
         <HStack spacing="8">
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={questionIcon} alt="Ask Questions" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Ask Questions</Text>
             <Text>Instantly get answers to your study-related questions.</Text>
           </Box>
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={personalizedIcon} alt="Personalized Assistance" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Personalized Assistance</Text>
             <Text>Tailored responses based on your academic level.</Text>
           </Box>
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={papersIcon} alt="Check Your Knowledge" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Test Your Knowledge</Text>
             <Text>Answer model papers and get instant feedback.</Text>
           </Box>
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={trackProgressIcon} alt="Track Progress" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Track Progress</Text>
             <Text>Monitor your learning journey with personalized feedback.</Text>
@@ -77,20 +77,20 @@ export default function Home() {
       </VStack>
 
       {/* How to get started */}
-      <VStack as="section" p="8" spacing="8" align="center" bg="white">
+      <VStack as="section" p="8" spacing="8" align="center" bg="#ABC8E4">
         <Heading>How to Get Started</Heading>
         <HStack spacing="8">
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={loginIcon} alt="Step 1" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Step 1</Text>
             <Text>Sign up or log in.</Text>
           </Box>
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={subjectIcon} alt="Step 2" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Step 2</Text>
             <Text>Select the subject</Text>
           </Box>
-          <Box textAlign="center">
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" textAlign="center">
             <Image src={modeIcon} alt="Step 3" boxSize="50px" mb="4" />
             <Text fontWeight="bold">Step 3</Text>
             <Text>Select the mode</Text>
@@ -99,4 +99,4 @@ export default function Home() {
       </VStack>
     </Box>
   );
-}
+  }

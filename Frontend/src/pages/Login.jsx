@@ -52,11 +52,11 @@ const Login = () => {
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg="blue.700"
+      bgGradient='linear(to-br, #189AB4 0%, #05445E 50%, #0D1626 100%)'
     >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'} color="gray.300" fontWeight="bold" textShadow="4px 4px 10px rgba(0, 0, 0, 0.8)">
+          <Heading fontSize={'4xl'} color="#D4F1F4" fontWeight="bold" textShadow="4px 4px 10px rgba(0, 0, 0, 0.8)">
             Login | MentorMate
           </Heading>
         </Stack>
