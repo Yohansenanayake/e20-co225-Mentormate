@@ -1,7 +1,25 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class PasswordManager:
+    """
+    A class for managing passwords securely, including hashing passwords and verifying them.
+
+    This class provides methods to:
+    - Hash passwords using a secure hashing algorithm.
+    - Check if a given password matches a stored hashed password.
+
+    Methods:
+        hash_password(password: str) -> str:
+            Hashes the provided plain text password.
+
+        check_password(password: str, hashed_password: str) -> bool:
+            Verifies if the provided plain text password matches the given hashed password.
+    """
+
     def __init__(self):
+        """
+        Initialize the PasswordManager instance. No parameters are required.
+        """
         pass
     
     def hash_password(self, password: str) -> str:

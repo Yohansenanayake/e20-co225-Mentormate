@@ -1,8 +1,13 @@
+//bioUnit1.jsx - for Unit 1 of Biology
+
 import React from 'react'
 import QUnitText from "../components/qUnitText"
 import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
 
+/* BioUnit1 component 
+  -displaying a set of questions for Unit1.
+*/
 function BioUnit1() {
   return (
     <>

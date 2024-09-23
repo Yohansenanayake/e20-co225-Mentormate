@@ -1,3 +1,6 @@
+// main.jsx
+// Entry point of the MentorMate app.
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client' // Import only createRoot, not ReactDOM
 import App from './App.jsx'
