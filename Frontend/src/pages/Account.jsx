@@ -1,3 +1,5 @@
+//Account.jsx - User account page
+
 import React, { useState } from 'react';
 import {
   Box,
@@ -30,10 +32,11 @@ import {
 import { FaUserEdit, FaSignOutAlt, FaCalendarAlt, FaMapMarkerAlt, FaLanguage, FaEnvelope, FaCreditCard, FaLock } from 'react-icons/fa';
 
 function Account() {
+  // Managing state for profile picture, password modal, card details modal, and form data
   const [profilePicture, setProfilePicture] = useState('https://via.placeholder.com/80');
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
   const [isCardDetailsOpen, setIsCardDetailsOpen] = useState(false);
-  const [editing, setEditing] = useState(null);
+  const [editing, setEditing] = useState(null); //track currently editing field
   const [formData, setFormData] = useState({
     name: 'Firstname Lastname',
     dob: '07 July 2005',
@@ -41,21 +44,24 @@ function Account() {
     language: 'English',
     email: 'ikakodesign@gmail.com',
   });
-
+  
+  //open field for editing
   const handleEditClick = (field) => {
     setEditing(field);
   };
 
+  //update form data
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  //save and exit
   const handleSave = () => {
-    // Save the form data
     setEditing(null);
   };
 
+  //profile pic changes handling
   const handleProfilePictureChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const reader = new FileReader();
@@ -66,9 +72,11 @@ function Account() {
     }
   };
 
+  //password change model
   const handleOpenChangePassword = () => setIsChangePasswordOpen(true);
   const handleCloseChangePassword = () => setIsChangePasswordOpen(false);
   
+  //card details model
   const handleOpenCardDetails = () => setIsCardDetailsOpen(true);
   const handleCloseCardDetails = () => setIsCardDetailsOpen(false);
 
@@ -89,6 +97,7 @@ function Account() {
           rounded="lg"
           w="300px"
         >
+          {/* User's Profile Picture */}
           <Avatar size="xl" src={profilePicture} mb={4} />
           <Input
             type="file"
@@ -97,6 +106,7 @@ function Account() {
             display="none"
             onChange={handleProfilePictureChange}
           />
+          {/* Button to upload a new profile picture */}
           <Button
             onClick={() => document.getElementById('profile-picture-upload').click()}
             variant="outline"
@@ -108,7 +118,8 @@ function Account() {
           <Text color="gray.500">{formData.email}</Text>
 
           <Divider />
-          
+
+          {/* Sidebar Navigation Links */}
           <List spacing={4} textAlign="left" w="full">
             <ListItem
               fontWeight="bold"
@@ -133,6 +144,7 @@ function Account() {
           boxShadow="lg"
           rounded="lg"
         >
+          {/* Header and Sign Out Button */}
           <HStack justify="space-between" mb={6}>
             <Heading size="lg">My Profile</Heading>
             <Button leftIcon={<FaSignOutAlt />} colorScheme="red">
@@ -140,10 +152,12 @@ function Account() {
             </Button>
           </HStack>
 
+          {/* Introductory Text */}
           <Text mb={6}>
             Manage your personal information, including phone numbers and email addresses where you can be contacted.
           </Text>
 
+          {/* List of Editable Profile Fields */}
           <Stack spacing={4}>
             <ProfileCard
               icon={FaUserEdit}
@@ -246,6 +260,7 @@ function Account() {
   );
 }
 
+// Reusable component to display and edit profile fields
 const ProfileCard = ({ icon, title, description, type, isEditing, onEditClick, onSave, onChange }) => {
     const [value, setValue] = useState(description);
   

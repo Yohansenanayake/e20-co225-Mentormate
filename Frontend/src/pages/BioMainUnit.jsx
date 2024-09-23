@@ -1,7 +1,11 @@
+//BioMainUnit.jsx - Main biology page containing all the units
+
 import React from 'react';
 import { Box, Flex, Image, Text, SimpleGrid } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+
+//import images
 import unit1 from '../assets/unit1.png';
 import unit2 from '../assets/unit2.jpg';
 import unit3 from '../assets/unit3.jpg';
@@ -13,6 +17,14 @@ import unit8 from '../assets/unit8.jpg';
 import unit9 from '../assets/unit9.jpg';
 import unit10 from '../assets/unit10.jpg';
 import paper from '../assets/paper.jpg';
+
+/**
+ * UnitCard component to render individual units as clickable cards.
+ * Props:
+ * - imageSrc: The image source for the card
+ * - text: The text label for the unit
+ * - onClick: Callback function when the card is clicked
+ */
 
 const UnitCard = ({ imageSrc, text, onClick }) => (
   <Box
@@ -32,6 +44,10 @@ const UnitCard = ({ imageSrc, text, onClick }) => (
   </Box>
 );
 
+/**
+ * BioMainUnit component to display the main biology unit selection screen.
+ * It includes a grid of clickable units, each leading to its respective unit page.
+ */
 function BioMainUnit() {
   const navigate = useNavigate();
 
@@ -42,6 +58,7 @@ function BioMainUnit() {
   return (
     <>
       <Navbar />
+      
       <Box 
       p="4"
       bg="gray.400"
@@ -97,6 +114,7 @@ function BioMainUnit() {
             text="Unit 10: Applied Biology" 
             onClick={() => handleNavigation(10)}
           />
+          
           <UnitCard imageSrc={paper} text="A/L 2022 paper" onClick={() => navigate('/paper2022')} />
           <UnitCard imageSrc={paper} text="A/L 2021 paper" onClick={() => navigate('/paper2021')} />
           <UnitCard imageSrc={paper} text="A/L 2020 paper" onClick={() => navigate('/paper2020')} />

@@ -21,7 +21,7 @@ function Subject() {
       <Box 
         
         minHeight="100vh"// Ensure the background covers the entire viewport
-        bg='gray.400'
+        bg='#ABC8E4'
         //bgGradient="linear(to-r, #858e96, #2b7ccd)" // Gradient background
         paddingTop="80px"
         
@@ -31,7 +31,7 @@ function Subject() {
         <Heading 
           as="h1" 
           fontSize={{ base: "3xl", md: "5xl", lg: "6xl" }} 
-          color="gray.700" 
+          color="#0D1626" 
           textShadow="2px 2px 8px rgba(0, 0, 0, 0.5)"
           letterSpacing="widest" 
           top="70px" 

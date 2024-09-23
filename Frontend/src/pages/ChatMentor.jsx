@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, GridItem, Box, Text, Spinner } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Spinner, useDisclosure } from '@chakra-ui/react';
 import Sidebar from '../components/Sidebar';
 import ChatContainer from '../components/ChatContainer';
 import apiServices from '../services/apiServices';
@@ -10,7 +10,9 @@ const ChatMentor = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Load threads after user login
+  // State for managing drawer
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   useEffect(() => {
     setLoading(true);
     apiServices.get('/threads')
@@ -22,17 +24,17 @@ const ChatMentor = () => {
         setError(error.message);
         setLoading(false);
       });
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 
   const handleSelectThread = (thread) => {
-    console.log('Selected thread:', thread.name);
     setLoading(true);
-    // Load messages for the selected thread
+    onClose(); // Close sidebar drawer
     apiServices.get(`/threads/${thread.id}/messages`)
       .then(response => {
-        // Directly use the messages as they are from the backend
+        
         setMessages(response.data.messages);
         setLoading(false);
+        
       })
       .catch(error => {
         setError(error.message);
@@ -56,29 +58,32 @@ const ChatMentor = () => {
 
   return (
     <Grid
-      templateColumns="250px 1fr"
+      templateColumns={{ base: '1fr', md: '250px 1fr' }} // Sidebar in drawer for mobile, normal layout for larger screens
       height="100vh"
-      templateRows="1fr"
-      gap="0"
     >
-      <GridItem>
-        <Sidebar
-          threads={threads}
-          onSelectThread={handleSelectThread}
-        />
-      </GridItem>
+      {/* Sidebar component as a Drawer in mobile view */}
+      <Sidebar
+        threads={threads}
+        onSelectThread={handleSelectThread}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
       <GridItem>
         {error && (
           <Box bg="red.500" color="white" p={3} borderRadius="md" mb={4}>
-            <Text>Error: {error}</Text>
+            Error: {error}
           </Box>
         )}
         {loading ? (
-          <Box display="flex" justifyContent="center" alignItems="center" height="100%" bg={'gray.800'}>
-            <Spinner size="xl" color="blue.300" emptyColor='gray.200'/>
+          <Box display="flex" justifyContent="center" alignItems="center" height="100%" bg="gray.800">
+            <Spinner size="xl" color="blue.300" emptyColor="gray.200" />
           </Box>
         ) : (
-          <ChatContainer messages={messages} onSendMessage={handleSendMessage} />
+          <ChatContainer
+            messages={messages}
+            onSendMessage={handleSendMessage}
+            onToggleSidebar={onOpen} // Trigger sidebar drawer
+          />
         )}
       </GridItem>
     </Grid>
