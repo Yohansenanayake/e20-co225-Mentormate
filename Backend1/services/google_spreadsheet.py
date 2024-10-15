@@ -137,11 +137,6 @@ def populate_answers_from_spreadsheet(spreadsheet_id, credentials_path):
         print(f"Error occurred while populating the database: {e}")
 
 
-if __name__ == "__main__":
-    spreadsheet_id = "1kwHVw2V32SvgUWGn398YekCjHyfk4vUF4fouTV-j5-M"
-    credentials_path = "../mentormate-googlecloud.json"
-    #populate_questions_from_spreadsheet(spreadsheet_id, credentials_path)
-    #populate_units_from_spreadsheet(spreadsheet_id, credentials_path)
-    #populate_answers_from_spreadsheet(spreadsheet_id, credentials_path)
+
 
 
