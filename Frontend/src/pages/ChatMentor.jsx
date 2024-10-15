@@ -31,10 +31,8 @@ const ChatMentor = () => {
     onClose(); // Close sidebar drawer
     apiServices.get(`/threads/${thread.id}/messages`)
       .then(response => {
-        
         setMessages(response.data.messages);
         setLoading(false);
-        
       })
       .catch(error => {
         setError(error.message);
@@ -58,7 +56,7 @@ const ChatMentor = () => {
 
   return (
     <Grid
-      templateColumns={{ base: '1fr', md: '250px 1fr' }} // Sidebar in drawer for mobile, normal layout for larger screens
+      templateColumns={{ base: '1fr', md: '250px 1fr' }} // Sidebar as drawer on mobile
       height="100vh"
     >
       {/* Sidebar component as a Drawer in mobile view */}
@@ -68,14 +66,14 @@ const ChatMentor = () => {
         isOpen={isOpen}
         onClose={onClose}
       />
-      <GridItem>
+      <GridItem display="flex" flexDirection="column">
         {error && (
           <Box bg="red.500" color="white" p={3} borderRadius="md" mb={4}>
             Error: {error}
           </Box>
         )}
         {loading ? (
-          <Box display="flex" justifyContent="center" alignItems="center" height="100%" bg="gray.800">
+          <Box display="flex" justifyContent="center" alignItems="center" height="100%">
             <Spinner size="xl" color="blue.300" emptyColor="gray.200" />
           </Box>
         ) : (

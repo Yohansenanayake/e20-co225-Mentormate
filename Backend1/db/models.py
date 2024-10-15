@@ -63,3 +63,43 @@ class Message(Base):
     # Define a many-to-one relationship with User.
     # Each message is sent by one user.
     user = relationship("User")
+
+# Unit model
+class Unit(Base):
+    __tablename__ = 'units'
+
+    id = Column(Integer, primary_key=True)  # Unique ID for each unit
+    unit_name = Column(String(255), nullable=False)  # Name of the unit (e.g., "Cell Biology")
+    unit_description = Column(Text, nullable=True)  # Optional description of the unit
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    # One-to-many relationship with questions
+    questions = relationship("Question", back_populates="unit", cascade="all, delete-orphan")
+
+# Question model
+class Question(Base):
+    __tablename__ = 'questions'
+
+    id = Column(Integer, primary_key=True)  # Unique ID for each question
+    unit_id = Column(Integer, ForeignKey('units.id'), nullable=False)  # Foreign key to Unit
+    question_no = Column(Integer, nullable=False)  # Question number within the unit
+    question_text = Column(Text, nullable=False)  # The text of the question
+    difficulty_level = Column(String(50), nullable=True)  # Difficulty of the question (easy, medium, hard) , optional
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    unit = relationship("Unit", back_populates="questions")
+    sample_answer = relationship("SampleAnswer", back_populates="question", uselist=False, cascade="all, delete-orphan")
+
+# SampleAnswer model
+class SampleAnswer(Base):
+    __tablename__ = 'sample_answers'
+
+    id = Column(Integer, primary_key=True)  # Unique ID for each sample answer
+    question_id = Column(Integer, ForeignKey('questions.id'), nullable=False)  # Foreign key to Question
+    answer_text = Column(Text, nullable=False)  # Reference/sample answer for the question
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    question = relationship("Question", back_populates="sample_answer")

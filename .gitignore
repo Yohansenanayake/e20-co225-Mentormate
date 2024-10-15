@@ -5,6 +5,4 @@ tests/__pycache__/
 .vscode
 Backend1/db/__pycache__/
 Backend1/services/__pycache__/
-Backend1/testData/
-Backend1/template/
-tests/
+Backend1/mentormate-googlecloud.json
