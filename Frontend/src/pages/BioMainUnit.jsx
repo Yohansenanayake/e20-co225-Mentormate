@@ -52,8 +52,9 @@ function BioMainUnit() {
   const navigate = useNavigate();
 
   const handleNavigation = (unitNumber) => {
-    navigate(`/explore/selectmode/biology/biomainunit/BioUnit${unitNumber}`);
+    navigate(`/explore/selectmode/biology/biomainunit/unit/${unitNumber}`);
   };
+  
 
   return (
     <>
