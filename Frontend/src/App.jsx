@@ -14,9 +14,9 @@ import Explore from './pages/Explore';
 import Subject from './pages/Subjects';
 import BioMainUnit from './pages/BioMainUnit';
 import DynamicBioUnit from './pages/DynamicBioUnit';
-import BioPaper2020 from './pages/BioPaper2020';
-import BioPaper2021 from './pages/BioPaper2021';
-import BioPaper2022 from './pages/BioPaper2022';
+import BioPaper2020 from './pages/bioPaper2020';
+import BioPaper2021 from './pages/bioPaper2021';
+import BioPaper2022 from './pages/bioPaper2022';
 
 function App() {
   return (
